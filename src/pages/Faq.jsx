@@ -1,4 +1,5 @@
 import ScrollUp from "../components/ScrollUp";
+import { Link } from "react-router-dom";
 
 const Faq = () => {
   return (
@@ -14,9 +15,9 @@ const Faq = () => {
           <div className="page-header-content">
             <h1 className="title">Faq</h1>
             <h4 className="sub-title">
-              <a className="home" href="index">
+              <Link className="home" to="/">
                 Home{" "}
-              </a>
+              </Link>
               <span></span>
               <a href="faq" className="inner-page">
                 {" "}

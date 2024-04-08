@@ -35,7 +35,7 @@ const Home = () => {
                   <span className="gradient-text">#ItsThatSaral</span>
                 </h1>
                 <Link
-                  href="/about"
+                  to="/about"
                   className="pb-primary-btn primary-2 wow fade-in-bottom"
                   data-wow-delay="600ms"
                 >
@@ -260,7 +260,7 @@ const Home = () => {
                   </li>
                 </ul>
                 <Link
-                  href="/about"
+                  to="/about"
                   className="pb-primary-btn wow fade-in-right"
                   data-wow-delay="700ms"
                 >

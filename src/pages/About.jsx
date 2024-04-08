@@ -1,4 +1,6 @@
 import ScrollUp from "../components/ScrollUp";
+import { Link } from "react-router-dom";
+
 const About = () => {
   return (
     <div>
@@ -13,9 +15,9 @@ const About = () => {
           <div className="page-header-content">
             <h1 className="title">About Us</h1>
             <h4 className="sub-title">
-              <a className="home" href="index">
+              <Link className="home" to="/">
                 Home{" "}
-              </a>
+              </Link>
               <span></span>
               <a href="about" className="inner-page">
                 {" "}
@@ -138,13 +140,13 @@ const About = () => {
                     </p>
                   </div>
                 </div>
-                <a
-                  href="services"
+                <Link
+                  to="/services"
                   className="pb-primary-btn primary-3 wow fade-in-right"
                   data-wow-delay="700ms"
                 >
                   Read More <i className="fa-regular fa-arrow-right"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
