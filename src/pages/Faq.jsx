@@ -15,7 +15,7 @@ const Faq = () => {
           <div className="page-header-content">
             <h1 className="title">Faq</h1>
             <h4 className="sub-title">
-              <Link className="home" to="/">
+              <Link reloadDocument className="home" to="/">
                 Home{" "}
               </Link>
               <span></span>

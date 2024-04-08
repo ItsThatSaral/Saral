@@ -35,6 +35,7 @@ const Home = () => {
                   <span className="gradient-text">#ItsThatSaral</span>
                 </h1>
                 <Link
+                  reloadDocument
                   to="/about"
                   className="pb-primary-btn primary-2 wow fade-in-bottom"
                   data-wow-delay="600ms"
@@ -108,7 +109,9 @@ const Home = () => {
                 </div>
                 <div className="service-content">
                   <h3 className="title">
-                    <Link reloadDocument to="/services">Brand Building</Link>
+                    <Link reloadDocument to="/services">
+                      Brand Building
+                    </Link>
                   </h3>
                   <p>
                     We understand the importance of a strong brand identity. Our
@@ -137,7 +140,9 @@ const Home = () => {
                 </div>
                 <div className="service-content">
                   <h3 className="title">
-                    <Link reloadDocument to="/services">Media Planning </Link>
+                    <Link reloadDocument to="/services">
+                      Media Planning{" "}
+                    </Link>
                   </h3>
                   <p>
                     As media experts, we develop comprehensive strategies that
@@ -166,7 +171,9 @@ const Home = () => {
                 </div>
                 <div className="service-content">
                   <h3 className="title">
-                    <Link reloadDocument to="/services">Social Media Management</Link>
+                    <Link reloadDocument to="/services">
+                      Social Media Management
+                    </Link>
                   </h3>
                   <p>
                     Our expert team crafts data-driven social media strategies
@@ -260,6 +267,7 @@ const Home = () => {
                   </li>
                 </ul>
                 <Link
+                  reloadDocument
                   to="/about"
                   className="pb-primary-btn wow fade-in-right"
                   data-wow-delay="700ms"
@@ -288,7 +296,8 @@ const Home = () => {
                     className="section-title wow fade-in-left"
                     data-wow-delay="400ms"
                   >
-                    We help Brands build and grow their<span>&nbsp;Digital&nbsp;</span>presence.
+                    We help Brands build and grow their
+                    <span>&nbsp;Digital&nbsp;</span>presence.
                   </h2>
                   <p className="wow fade-in-left" data-wow-delay="500ms">
                     We live in a world that’s constantly evolving and with the
@@ -439,7 +448,8 @@ const Home = () => {
                 <div className="section-heading heading-2">
                   <h4 className="sub-heading">Contact Us</h4>
                   <h2 className="section-title">
-                    Make your&nbsp;<span>Brand</span>&nbsp;stand out in&nbsp;<span>Digital</span>&nbsp; Presence
+                    Make your&nbsp;<span>Brand</span>&nbsp;stand out in&nbsp;
+                    <span>Digital</span>&nbsp; Presence
                   </h2>
                   <p>
                     Reach out to us to build your brand and social presence.

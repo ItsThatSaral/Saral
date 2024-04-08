@@ -15,7 +15,7 @@ const About = () => {
           <div className="page-header-content">
             <h1 className="title">About Us</h1>
             <h4 className="sub-title">
-              <Link className="home" to="/">
+              <Link reloadDocument className="home" to="/">
                 Home{" "}
               </Link>
               <span></span>
@@ -141,6 +141,7 @@ const About = () => {
                   </div>
                 </div>
                 <Link
+                  reloadDocument
                   to="/services"
                   className="pb-primary-btn primary-3 wow fade-in-right"
                   data-wow-delay="700ms"
