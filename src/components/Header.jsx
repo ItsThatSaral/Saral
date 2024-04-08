@@ -9,7 +9,6 @@ const Header = () => {
   const history = useLocation();
 
   useEffect(() => {
-    console.log({ history });
     if (history.pathname === "/") {
       setShowMain(true);
     } else {

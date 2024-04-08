@@ -1,47 +1,19 @@
 /* ============ Main JS ============ */
 
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /*loop through a collection of all HTML elements:*/
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("w3-include-html");
-    if (file) {
-      /*make an HTTP request using the attribute value as the file name:*/
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function () {
-        if (this.readyState == 4) {
-          if (this.status == 200) {
-            elmnt.innerHTML = this.responseText;
-          }
-          if (this.status == 404) {
-            elmnt.innerHTML = "Page not found.";
-          }
-          /*remove the attribute, and call this function once more:*/
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      };
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /*exit the function:*/
-      return;
-    }
-  }
-}
-
 (function ($) {
-  "use strict";
+  // "use strict";idebar-trigger
+
+  // console.log("APLE");
 
   var windowOn = $(window);
 
   // 01. PreLoader Js
   $(window).on("load", function (event) {
+    // console.log("THIS IN window");
     $(".preloader").delay(500).fadeOut(500);
   });
   $(document).ready(function () {
+    // console.log("THIS IN doc");
     var header = $(".header"),
       stickyHeader = $(".primary-header");
 
@@ -67,10 +39,12 @@ function includeHTML() {
       }
     }
 
+    // console.log("1");
     var minWidth = window.matchMedia("(min-width: 992px)");
     if (header.hasClass("sticky-active")) {
       menuSticky(minWidth);
     }
+    // console.log("2");
 
     //Mobile Menu Js
     // $(".mobile-menu-items").meanmenu({
@@ -97,7 +71,10 @@ function includeHTML() {
 
     // Mobile Sidemenu
     $(function () {
+      // console.log("sidme menu functions");
+
       $("#mobile-side-menu-toggle").on("click", function () {
+        // console.log("TOGGLE SIDE MENU")
         $(".mobile-side-menu, .mobile-side-menu-overlay").toggleClass(
           "is-open"
         );
@@ -106,6 +83,8 @@ function includeHTML() {
       $("#mobile-side-menu-close, #mobile-side-menu-overlay").on(
         "click",
         function () {
+          // console.log("TOGGLE SIDE MENU CLOSE")
+
           $(".mobile-side-menu, .mobile-side-menu-overlay").removeClass(
             "is-open"
           );
@@ -115,6 +94,8 @@ function includeHTML() {
 
     // Popup Search Box
     $(function () {
+      // console.log("pop search functions");
+
       $("#popup-search-box").removeClass("toggled");
 
       $(".dl-search-icon").on("click", function (e) {
@@ -136,6 +117,8 @@ function includeHTML() {
     function sideBox() {
       $("body").removeClass("open-sidebar");
       $(document).on("click", ".sidebar-trigger", function (e) {
+        // console.log("TOGGLE SIDEBOX")
+
         e.preventDefault();
         $("body").toggleClass("open-sidebar");
       });
@@ -143,15 +126,19 @@ function includeHTML() {
         "click",
         ".sidebar-trigger.close, #sidebar-overlay",
         function (e) {
+          // console.log("TOGGLE SIDEBOX CLOSE")
           e.preventDefault();
           $("body.open-sidebar").removeClass("open-sidebar");
         }
       );
     }
 
-    sideBox();
+    // console.log("before calling sidebox functions");
 
-    // Venobox Video
+    sideBox();
+    // console.log("after calling sidebox functions");
+
+    // // Venobox Video
     new VenoBox({
       selector: ".video-popup, .img-popup",
       bgcolor: "transparent",
@@ -159,6 +146,8 @@ function includeHTML() {
       infinigall: true,
       spinner: "plane",
     });
+
+    // console.log("after calling VenBox functions");
 
     // Data Background
     $("[data-background").each(function () {
@@ -168,12 +157,17 @@ function includeHTML() {
       );
     });
 
+    // console.log("before calling odometer");
+
     /* Odometer */
     $(".odometer").waypoint(
       function () {
+        // console.log("CLICKING ODOMETER");
         var odo = $(".odometer");
+        // console.log("ODO ", { odo });
         odo.each(function () {
           var countNumber = $(this).attr("data-count");
+          // console.log("countNumber ", countNumber);
           $(this).html(countNumber);
         });
       },
@@ -183,8 +177,12 @@ function includeHTML() {
       }
     );
 
+    // console.log("after calling odometer");
+
     // Wow JS Active
     new WOW().init();
+
+    // console.log("after calling WOW init");
 
     // Nice Select Js
     $("select").niceSelect();
@@ -354,9 +352,12 @@ function includeHTML() {
       },
     });
 
+    // console.log("manage sctoll to top");
+
     // Scroll To Top
     var scrollTop = $("#scrollup");
     $(window).on("scroll", function () {
+      // console.log("ON SCROLL")
       var topPos = $(this).scrollTop();
       if (topPos > 100) {
         $("#scrollup").removeClass("hide");
@@ -368,6 +369,7 @@ function includeHTML() {
     });
 
     $(scrollTop).on("click", function () {
+      // console.log("CLICKING SCROLL");
       $("html, body").animate(
         {
           scrollTop: 0,
@@ -376,5 +378,7 @@ function includeHTML() {
       );
       return false;
     });
+
+    // console.log("last of manage sctoll to top");
   });
 })(jQuery);
