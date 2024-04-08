@@ -30,7 +30,7 @@ const ContactForm = () => {
                 type="text"
                 className="form-control"
                 placeholder="Your Name"
-                required="true"
+                required={true}
                 onChange={(e) => handleChange(e, "name")}
               />
             </div>
@@ -39,7 +39,7 @@ const ContactForm = () => {
                 type="tel"
                 className="form-control"
                 placeholder="Phone"
-                required="true"
+                required={true}
                 onChange={(e) => handleChange(e, "phone")}
               />
             </div>
@@ -50,7 +50,7 @@ const ContactForm = () => {
                 type="text"
                 className="form-control"
                 placeholder="Subject"
-                required="true"
+                required={true}
                 onChange={(e) => handleChange(e, "subject")}
               />
             </div>
@@ -64,7 +64,7 @@ const ContactForm = () => {
                 rows="5"
                 className="form-control address"
                 placeholder="Message"
-                required="true"
+                required={true}
                 onChange={(e) => handleChange(e, "message")}
               ></textarea>
             </div>
