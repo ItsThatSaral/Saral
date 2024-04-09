@@ -1,5 +1,7 @@
 import ScrollUp from "../components/ScrollUp";
 import { Link } from "react-router-dom";
+import { Waypoint } from "react-waypoint";
+import { handleDataCount } from "../helpers/utils";
 
 const About = () => {
   return (
@@ -49,6 +51,7 @@ const About = () => {
                     </div>
                     <div className="counter-content">
                       <h3 className="title">
+                        <Waypoint onEnter={handleDataCount} />
                         <span className="odometer" data-count="4">
                           0
                         </span>

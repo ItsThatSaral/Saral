@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const [showPreloader, setShowPreloader] = useState(true);
   const [showMain, setShowMain] = useState(true);
+
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showSearchBox, setShowSearchBox] = useState(false);
+
   const history = useLocation();
 
   useEffect(() => {
@@ -21,6 +25,29 @@ const Header = () => {
       setShowPreloader(false);
     }, 1000);
   }, [showPreloader]);
+
+  const openSideMenu = () => {
+    setShowMobileMenu(true);
+  };
+
+  const closeSideMenu = () => {
+    setShowMobileMenu(false);
+  };
+
+  const handleSearchInput = (e) => {
+    e.stopPropagation();
+  };
+
+  const openSearchBox = (e) => {
+    e.stopPropagation();
+    setShowSearchBox(true);
+    document.getElementById("popup-search").focus();
+  };
+
+  const closeSearchBox = (e) => {
+    e.stopPropagation();
+    setShowSearchBox(false);
+  };
 
   return (
     <div>
@@ -64,7 +91,10 @@ const Header = () => {
                   </div>
 
                   <div className="header-right">
-                    <div className="search-icon dl-search-icon">
+                    <div
+                      className="search-icon dl-search-icon"
+                      onClick={openSearchBox}
+                    >
                       <i className="fa-solid fa-magnifying-glass"></i>
                     </div>
                     <Link
@@ -75,12 +105,13 @@ const Header = () => {
                       Get Started
                     </Link>
                     <div className="header-right-item">
-                      <a
+                      <div
                         id="mobile-side-menu-toggle"
                         className="mobile-side-menu-toggle d-lg-none"
+                        onClick={openSideMenu}
                       >
                         <i className="fa-sharp fa-solid fa-bars"></i>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -88,14 +119,21 @@ const Header = () => {
             </div>
           </header>
 
-          <div id="popup-search-box">
-            <div className="box-inner-wrap d-flex align-items-center">
+          <div
+            id="popup-search-box"
+            className={`${showSearchBox ? "toggled" : ""}`}
+          >
+            <div
+              className="box-inner-wrap d-flex align-items-center"
+              onClick={closeSearchBox}
+            >
               <form id="form" action="#" method="get" role="search">
                 <input
                   id="popup-search"
                   type="text"
                   name="s"
                   placeholder="Type keywords here..."
+                  onClick={handleSearchInput}
                 />
               </form>
               <div className="search-close">
@@ -106,7 +144,9 @@ const Header = () => {
 
           {showPreloader && <Preloader />}
 
-          <div className="mobile-side-menu">
+          <div
+            className={`mobile-side-menu ${showMobileMenu ? " is-open " : ""}`}
+          >
             <div className="side-menu-content">
               <div className="side-menu-head">
                 <Link reloadDocument to="/">
@@ -115,6 +155,7 @@ const Header = () => {
                 <button
                   id="mobile-side-menu-close"
                   className="mobile-side-menu-close"
+                  onClick={closeSideMenu}
                 >
                   <i className="fa-regular fa-xmark"></i>
                 </button>
@@ -183,7 +224,10 @@ const Header = () => {
 
           <div
             id="mobile-side-menu-overlay"
-            className="mobile-side-menu-overlay"
+            className={`mobile-side-menu-overlay ${
+              showMobileMenu ? " is-open " : ""
+            }`}
+            onClick={closeSideMenu}
           ></div>
         </div>
       ) : (
@@ -242,12 +286,13 @@ const Header = () => {
                       Contact<i className="fa-regular fa-arrow-right"></i>
                     </Link>
                     <div className="header-right-item">
-                      <a
+                      <div
                         id="mobile-side-menu-toggle"
                         className="mobile-side-menu-toggle d-lg-none"
+                        onClick={openSideMenu}
                       >
                         <i className="fa-sharp fa-solid fa-bars"></i>
-                      </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -255,7 +300,10 @@ const Header = () => {
             </div>
           </header>
 
-          <div id="popup-search-box">
+          <div
+            id="popup-search-box"
+            className={`${showSearchBox ? "toggled" : ""}`}
+          >
             <div className="box-inner-wrap d-flex align-items-center">
               <form id="form" action="#" method="get" role="search">
                 <input
@@ -273,7 +321,9 @@ const Header = () => {
 
           {showPreloader && <Preloader />}
 
-          <div className="mobile-side-menu">
+          <div
+            className={`mobile-side-menu ${showMobileMenu ? " is-open " : ""}`}
+          >
             <div className="side-menu-content">
               <div className="side-menu-head">
                 <Link reloadDocument to="">
@@ -282,6 +332,7 @@ const Header = () => {
                 <button
                   id="mobile-side-menu-close"
                   className="mobile-side-menu-close"
+                  onClick={closeSideMenu}
                 >
                   <i className="fa-regular fa-xmark"></i>
                 </button>
@@ -349,7 +400,10 @@ const Header = () => {
           </div>
           <div
             id="mobile-side-menu-overlay"
-            className="mobile-side-menu-overlay"
+            className={`mobile-side-menu-overlay ${
+              showMobileMenu ? " is-open " : ""
+            }`}
+            onClick={closeSideMenu}
           ></div>
         </div>
       )}

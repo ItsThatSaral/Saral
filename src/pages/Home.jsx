@@ -1,6 +1,8 @@
 import ScrollUp from "../components/ScrollUp";
 import ContactForm from "../components/ContactForm";
 import { Link } from "react-router-dom";
+import { Waypoint } from "react-waypoint";
+import { handleDataCount } from "../helpers/utils";
 
 const Home = () => {
   return (
@@ -78,6 +80,7 @@ const Home = () => {
                   <img src="/assets/img/icon/hero-user.png" alt="icon" />
                   <div className="counter-content">
                     <h3 className="title">
+                      <Waypoint onEnter={handleDataCount} />
                       <span className="odometer" data-count="5000">
                         0
                       </span>
