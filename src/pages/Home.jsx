@@ -81,7 +81,7 @@ const Home = () => {
                   <div className="counter-content">
                     <h3 className="title">
                       <Waypoint onEnter={handleDataCount} />
-                      <span className="odometer" data-count="5000">
+                      <span className="odometer" data-count="50">
                         0
                       </span>
                       +

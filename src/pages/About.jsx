@@ -282,7 +282,7 @@ const About = () => {
                   </div>
                   <div className="content">
                     <h3 className="title">
-                      <span className="odometer" data-count="5000">
+                      <span className="odometer" data-count="50">
                         0
                       </span>
                       <span className="text">+</span>
